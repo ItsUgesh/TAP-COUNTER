@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/pages/first_page.dart';
+import 'package:flutter_demo/pages/home_page.dart';
+import 'package:flutter_demo/pages/profile_page.dart';
+
+import 'package:flutter_demo/pages/setting_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,36 +20,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext Context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        //backgroundColor: Colors.yellowAccent,
-        // appBar: AppBar(
-        //   title: const Text("Demo App"),
-        //   backgroundColor: Colors.yellow,
-        //   leading: const Icon(Icons.menu),
-        //   actions: [
-        //     IconButton(onPressed: () {}, icon: const Icon(Icons.logout))
-        //   ],
-        // ),
-        body: GestureDetector(
-          onTap: userTapped,
-          child: Center(
-            child: Container(
-              height: 300,
-              width: 300,
-              color: Colors.black87,
-              child: const Center(
-                child: Text(
-                  "tap me",
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 44,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
+      routes: {
+        '/homepage': (Context) => home_page(),
+        '/settingpage': (Context) => setting_page(),
+        '/profilepage': (Context) => ProfilePage(),
+      },
+      home: FirstPage(),
     );
   }
 }
